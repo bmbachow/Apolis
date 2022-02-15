@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "https___beyondtheflag.com_wp-content_uploads_getty-images_2016_04_458622486.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

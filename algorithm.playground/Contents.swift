@@ -24,7 +24,7 @@ func findLargest(arr : [Int]) -> Int {
             temp = i
         }
     }
-    
+
     return temp!
 }
 
@@ -64,39 +64,99 @@ struct StackStructure {
     mutating func elementPoppedFromStack() -> Int?{
         return startingStack.popLast()
     }
-    
+
     mutating func showStack() -> [Int]?{
         return startingStack
     }
-    
+
 }
 
 class StackTest: XCTestCase {
-    
+
     var stack = StackStructure()
-    
+
     override func setUpWithError() throws {
-        
+
     }
 
     override func tearDownWithError() throws {
-        
+
     }
-    
+
     func testAddToStack() {
         stack.addToStack(newElement: 5)
         XCTAssert(stack.startingStack.count == 1)
-        
+
     }
-    
+
     func testElementPoppedFromStack() {
-        
+
         stack.startingStack = [1, 2, 3]
         let poppedElement = stack.elementPoppedFromStack()
         XCTAssertEqual(poppedElement, 3)
-        
+
     }
 }
 
 
 StackTest.defaultTestSuite.run()
+
+
+
+struct FizzBuzz {
+    func fizzBuzz(){
+        for i in 1...100 {
+            if i % 3 == 0 && i % 5 == 0 {
+                print("FizzBuzz")
+            }
+            if i % 3 == 0 {
+                print("Fizz")
+            }
+            if i % 5 == 0 {
+                print("Buzz")
+            } else {
+                print(i)
+            }
+    }
+
+}
+}
+
+
+
+class FizzBuzzTest: XCTestCase {
+
+    var fizzBuzzInstance = FizzBuzz()
+
+    override func setUpWithError() throws {
+
+    }
+
+    override func tearDownWithError() throws {
+
+    }
+
+    func testFizz() {
+        fizzBuzzInstance.fizzBuzz()
+        XCTAssertEqual("Fizz", "Third Printed Line")
+    }
+
+    func testBuzz() {
+        fizzBuzzInstance.fizzBuzz()
+        XCTAssertEqual("Buzz", "Fifth Printed Line")
+    }
+
+    func testFizzBuzz() {
+        fizzBuzzInstance.fizzBuzz()
+        XCTAssertEqual("FizzBuzz", "Fifteenth Printed Line")
+    }
+
+    func testNeitherFizzNorBuzz() {
+        fizzBuzzInstance.fizzBuzz()
+        XCTAssertEqual(1, 1)
+    }
+
+
+}
+
+FizzBuzzTest.defaultTestSuite.run()
