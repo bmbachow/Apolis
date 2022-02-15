@@ -24,7 +24,7 @@ func findLargest(arr : [Int]) -> Int {
             temp = i
         }
     }
-
+    
     return temp!
 }
 
@@ -64,99 +64,103 @@ struct StackStructure {
     mutating func elementPoppedFromStack() -> Int?{
         return startingStack.popLast()
     }
-
+    
     mutating func showStack() -> [Int]?{
         return startingStack
     }
-
+    
 }
 
 class StackTest: XCTestCase {
-
+    
     var stack = StackStructure()
-
+    
     override func setUpWithError() throws {
-
+        
     }
-
+    
     override func tearDownWithError() throws {
-
+        
     }
-
+    
     func testAddToStack() {
         stack.addToStack(newElement: 5)
         XCTAssert(stack.startingStack.count == 1)
-
+        
     }
-
+    
     func testElementPoppedFromStack() {
-
+        
         stack.startingStack = [1, 2, 3]
         let poppedElement = stack.elementPoppedFromStack()
         XCTAssertEqual(poppedElement, 3)
-
+        
     }
 }
 
 
 StackTest.defaultTestSuite.run()
 
+for i in 1...100{
+    print(fizzBuzz(num : i))
+}
 
-
-struct FizzBuzz {
-    func fizzBuzz(){
-        for i in 1...100 {
-            if i % 3 == 0 && i % 5 == 0 {
-                print("FizzBuzz")
-            }
-            if i % 3 == 0 {
-                print("Fizz")
-            }
-            if i % 5 == 0 {
-                print("Buzz")
-            } else {
-                print(i)
-            }
+func isDivisibleByThree(num : Int) -> Bool {
+    if num % 3 == 0 {
+        return true
     }
-
+    return false
 }
+
+func isDivisibleByFive(num : Int) -> Bool {
+    if num % 5 == 0 {
+        return true
+    }
+    return false
 }
 
+func fizzBuzz(num : Int) -> String {
+    if isDivisibleByFive(num: num) && isDivisibleByThree(num: num){
+        return ("FizzBuzz")
+    } else if isDivisibleByThree(num : num) {
+        return ("Fizz")
+    } else if isDivisibleByFive(num: num){
+        return ("Buzz")
+    } else {
+        return (String(num))
+    }
+    
+    
+}
 
 
 class FizzBuzzTest: XCTestCase {
-
-    var fizzBuzzInstance = FizzBuzz()
-
+    
     override func setUpWithError() throws {
-
+        
     }
-
+    
     override func tearDownWithError() throws {
-
+        
     }
-
-    func testFizz() {
-        fizzBuzzInstance.fizzBuzz()
-        XCTAssertEqual("Fizz", "Third Printed Line")
+    
+    func testIsDivisibleByThree() {
+        XCTAssertTrue(isDivisibleByThree(num : 6))
+        XCTAssertTrue(isDivisibleByThree(num : 9))
+        XCTAssertTrue(isDivisibleByThree(num : 18))
     }
-
-    func testBuzz() {
-        fizzBuzzInstance.fizzBuzz()
-        XCTAssertEqual("Buzz", "Fifth Printed Line")
+    
+    func testIsDivisibleByFive() {
+        XCTAssertTrue(isDivisibleByFive(num : 5))
+        XCTAssertTrue(isDivisibleByFive(num : 25))
+        XCTAssertTrue(isDivisibleByFive(num : 50))
     }
-
+    
     func testFizzBuzz() {
-        fizzBuzzInstance.fizzBuzz()
-        XCTAssertEqual("FizzBuzz", "Fifteenth Printed Line")
+        XCTAssertEqual(fizzBuzz(num: 15), "FizzBuzz")
     }
-
-    func testNeitherFizzNorBuzz() {
-        fizzBuzzInstance.fizzBuzz()
-        XCTAssertEqual(1, 1)
-    }
-
-
+    
+    
 }
 
 FizzBuzzTest.defaultTestSuite.run()
