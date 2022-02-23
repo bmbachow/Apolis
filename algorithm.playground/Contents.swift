@@ -164,3 +164,7 @@ class FizzBuzzTest: XCTestCase {
 }
 
 FizzBuzzTest.defaultTestSuite.run()
+
+
+
+func findSumOfEven
