@@ -29,14 +29,14 @@ struct fizzBuzz {
     }
     
     func fizz(num : Int) -> Bool {
-        if num % 3 == 0 {
+        if num.isMultiple(of: 3) {
             return true
         }
         return false
     }
     
     func buzz(num: Int) -> Bool {
-        if num % 5 == 0 {
+        if num.isMultiple(of: 5) {
             return true
         }
         return false
@@ -97,10 +97,6 @@ class fizzBuzzMockTests: XCTestCase {
         XCTAssertEqual(true, fizzbuzzobject?.fizzBuzz(num: 30))
         XCTAssertEqual(true, fizzbuzzobject?.fizzBuzz(num: 60))
         XCTAssertEqual(false, fizzbuzzobject?.fizzBuzz(num: 10))
-    }
-    
-    func testRunLoop(){
-        
     }
 
     func testPerformanceExample() throws {
